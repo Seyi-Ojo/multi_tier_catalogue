@@ -19,11 +19,17 @@ services:
       - book-network
     healthcheck:
       test:
-        ["CMD-SHELL", "curl -f", "http://localhost:8081/api/books || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 15s
+        [
+          "CMD",
+          "wget",
+          "--spider",
+          "--quiet",
+          "http://localhost:8081/actuator/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   web-service:
     build:
