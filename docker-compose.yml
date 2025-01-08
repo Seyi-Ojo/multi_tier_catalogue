@@ -10,25 +10,20 @@ services:
     environment:
       - SERVER_PORT=8081
       - DB_URL=jdbc:h2:file:/data/books
-      - DB_USERNAME=sa
+      - DB_USER=sa
       - DB_PASSWORD=password
-      - ALLOWED_ORIGINS=http://localhost:8080
+      - ALLOWED_ORIGINS=http://localhost:8080,http://web-service:8080
     volumes:
       - book-data:/data
     networks:
       - book-network
     healthcheck:
       test:
-        [
-          "CMD",
-          "wget",
-          "--spider",
-          "-q",
-          "http://localhost:8081/actuator/health",
-        ]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+        ["CMD-SHELL", "curl -f", "http://localhost:8081/api/books || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
 
   web-service:
     build:
@@ -51,4 +46,5 @@ volumes:
 
 networks:
   book-network:
+    name: book-network
     driver: bridge

@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/books")
-@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:8082" })
+@CrossOrigin(origins = { "http://localhost:8080", "http://web-service:8080" })
 public class BookController {
     private static final Logger logger = LoggerFactory.getLogger(BookController.class);
 

@@ -25,7 +25,8 @@ import java.util.UUID;
 @RequestMapping("/")
 public class BookController {
 
-    private static final String BASE_URL = "http://localhost:8081/api/books";
+    @Value("${backend.api.url}")
+    private String BASE_URL;
 
     @Autowired
     private RestTemplate restTemplate;

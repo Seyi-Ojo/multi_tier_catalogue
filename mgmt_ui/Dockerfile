@@ -1,7 +1,7 @@
 FROM eclipse-temurin:21-jdk-alpine
 
 # Add basic utilities
-RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache curl && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
