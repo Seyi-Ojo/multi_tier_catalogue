@@ -23,6 +23,11 @@ A two-service Spring Boot application for managing books, consisting of a web UI
 
 1. Container Startup
 
+   1. Clone the repository:
+   2. git clone [repository-url]
+   3. cd multi-tier-catalogue
+   4. docker-compose up --build
+
    - Check container logs: `docker-compose logs`
    - Verify Docker daemon is running
    - Ensure sufficient system resources
