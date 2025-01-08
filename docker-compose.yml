@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+  mgmt-service:
+    build:
+      context: ./mgmt_ui
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - SERVER_PORT=8081
+      - DB_URL=jdbc:h2:file:/data/books
+      - DB_USERNAME=sa
+      - DB_PASSWORD=password
+      - ALLOWED_ORIGINS=http://localhost:8080
+    volumes:
+      - book-data:/data
+    networks:
+      - book-network
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--spider",
+          "-q",
+          "http://localhost:8081/actuator/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  web-service:
+    build:
+      context: ./web_ui
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVER_PORT=8080
+      - BACKEND_API_URL=http://mgmt-service:8081/api/books
+    depends_on:
+      mgmt-service:
+        condition: service_healthy
+    networks:
+      - book-network
+
+volumes:
+  book-data:
+    name: book-catalogue-data
+
+networks:
+  book-network:
+    driver: bridge
