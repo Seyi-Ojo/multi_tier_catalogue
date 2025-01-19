@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Edit Book - PayU</title>
+    <title>Edit Book - MayU</title>
     <link rel="stylesheet" href="/resources/css/style.css" />
   </head>
   <body>
     <header class="header">
-      <a href="/books" class="logo">PayU</a>
+      <a href="/books" class="logo">MayU</a>
       <nav class="nav-links">
         <a href="/books">Books</a>
         <a href="/books/add">Add Book</a>
