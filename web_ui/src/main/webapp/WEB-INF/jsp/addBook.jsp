@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Add New Book - PayU</title>
+    <title>Add New Book - MayU</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -11,7 +11,7 @@
   <body>
     <header class="header">
       <div class="header-content">
-        <a href="/books" class="logo">PayU</a>
+        <a href="/books" class="logo">MayU</a>
         <nav class="nav-links">
           <a href="/books" class="nav-link">Books</a>
           <a href="/books/add" class="add-book-btn">Add Book</a>

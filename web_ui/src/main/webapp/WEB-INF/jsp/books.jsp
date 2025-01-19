@@ -4,7 +4,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Books List - PayU</title>
+    <title>Books List - MayU</title>
     <link rel="stylesheet" href="/resources/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
@@ -14,7 +14,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
   <body>
     <header class="header">
       <div class="header-content">
-        <a href="/books" class="logo">PayU</a>
+        <a href="/books" class="logo">MayU</a>
         <nav class="nav-links">
           <a href="/books" class="nav-link">Books</a>
           <a href="/books/add" class="add-book-btn">Add Book</a>
